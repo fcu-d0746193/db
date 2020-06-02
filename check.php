@@ -17,12 +17,13 @@ require  'session.php';
  $dbpass = 'test1234';
  $dbname = 'testdb';
  $conn = mysqli_connect($dbhost, $dbuser, $dbpass) or die('Error with MySQL connection');
+ $_SESSION['conn'] = $conn;
  mysqli_query($conn, "SET NAMES 'utf8'");
  mysqli_select_db($conn, $dbname);
  $sql = "SELECT * FROM customer where account =  '{$_SESSION[ "username" ]}' and password =  '{$_SESSION[ "password" ]}';";
  //$sql = "SELECT * FROM customer where account = '$username' and password =  '$password';";
  if($sql){
-     echo "成功";
+     echo "登入成功 Hi ";
  }
  else {
      echo "error";
@@ -35,7 +36,6 @@ require  'session.php';
     $result = mysql_query("select * from users where username = '$username' and password = '$password'")//要改
     or die ("Failed to query database".mysql_error());
     $row = mysql_fetch_array($result);*/
-    $result = mysqli_query($conn, $sql) or die('MySQL query error');
  while($row = mysqli_fetch_array($result)){
   echo $row['Name']."<p>";
  }
