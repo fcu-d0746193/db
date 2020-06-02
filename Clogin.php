@@ -10,6 +10,8 @@
       <input type="password" id="pwd" name="pwd" minlength="8" required><br><br>
       <input type="submit" class="button button1">
     </div>
+  </form>
+  <form action="sign.php" method="post">
     <div class="context">
       <p id="title-p">尚未註冊?
         <button type="buttom" class="button button2" formaction="sign.php" value="login">註冊</button></p>

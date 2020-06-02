@@ -10,6 +10,8 @@
             <input type="text" id="adrs" name="adrs" required><br><br>
             <label for="email">電子信箱:</label>
             <input type="email" id="email" name="email" required><br><br>
+            <label for="account">您的帳號:</label>
+            <input type="text" id="account" name="account" required><br><br>
             <label for="pwd">您的密碼:</label>
             <input type="password" id="pwd" name="pwd" minlength="8" required><br><br>
             <input type="submit">

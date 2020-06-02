@@ -32,3 +32,7 @@
         </div>
     </nav>
     <br><br><br>
+
+    <?php session_start();
+      echo $_SESSION[ "password" ];
+    ?>

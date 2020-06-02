@@ -1,7 +1,10 @@
 <?php
+require  'session.php';
 //Get values passe from form in login.php file
     $username = $_POST['user'];
     $password = $_POST['pwd'];
+    $_SESSION['username'] = $username;
+    $_SESSION['password'] = $password;
 
 //to prevent mysql injection
     //$username = stripcslasher($username);
@@ -16,9 +19,13 @@
  $conn = mysqli_connect($dbhost, $dbuser, $dbpass) or die('Error with MySQL connection');
  mysqli_query($conn, "SET NAMES 'utf8'");
  mysqli_select_db($conn, $dbname);
- $sql = "SELECT * FROM customer where account = '$username' and password = '$password';";
- if($sql == NULL){
-     echo "帳號密碼錯誤";
+ $sql = "SELECT * FROM customer where account =  '{$_SESSION[ "username" ]}' and password =  '{$_SESSION[ "password" ]}';";
+ //$sql = "SELECT * FROM customer where account = '$username' and password =  '$password';";
+ if($sql){
+     echo "成功";
+ }
+ else {
+     echo "error";
  }
  $result = mysqli_query($conn, $sql) or die('MySQL query error');
 
