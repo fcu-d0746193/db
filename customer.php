@@ -26,9 +26,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li><a class="nav-link" href="shop.php">產品資訊</a></li>
-                <li><a class="nav-link" href="order.php">訂單資訊</a></li>
-                <li><a class="nav-link" href="order.php">通知</a></li>
+                <li><a class="nav-link" href="shop.php">商店</a></li>
+                <li><a class="nav-link" href="order.php">我的訂單</a></li>
             </ul>
         </div>
     </nav>
