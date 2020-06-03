@@ -44,12 +44,17 @@
       mysqli_select_db($conn, $dbname);
       //echo $_SESSION[ "password" ];
       //$conn = $_SESSION['conn'];
-      $sql = "SELECT * FROM orders";
+      $sql = "SELECT * FROM orders where C_id = '{$_SESSION[ "id" ]}';";
       //$sql = "SELECT * FROM customer where account = '$username' and password =  '$password';";
       
       $result = mysqli_query($conn, $sql) or die('MySQL query error');
        echo "訂單編號    新增時間";
       while($row = mysqli_fetch_array($result)){
-       echo "<br>", $row['O_id'] , $row['date'] ,"<br>";//超連結
+          if($row['id']=$_SESSION['id']){
+            echo "<br>", $row['O_id'] , $row['date'] ,"<br>";//超連結
+          }
+          else{
+          break;
+          }
       }
     ?>

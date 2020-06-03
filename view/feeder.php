@@ -45,10 +45,11 @@
       mysqli_select_db($conn, $dbname);
       echo $_SESSION[ "password" ];
       $conn = $_SESSION['conn'];
-      $sql = "SELECT * FROM customer where account =  '{$_SESSION[ "username" ]}' and password =  '{$_SESSION[ "password" ]}';";
+      $sql = "SELECT * FROM animal ";
       //$sql = "SELECT * FROM customer where account = '$username' and password =  '$password';";
       $result = mysqli_query($conn, $sql) or die('MySQL query error');
-     
+      echo "<br>使用者 : ";
+      echo $_SESSION["Name"];
          /*mysqli_connect("localhost","hj","test1234");
          mysqli_select_db("testdb");
      //Query the database for user
@@ -56,6 +57,6 @@
          or die ("Failed to query database".mysql_error());
          $row = mysql_fetch_array($result);*/
       while($row = mysqli_fetch_array($result)){
-       echo $row['Name']."<p>";
+       echo $row['A_id'], $row['E_id'],"<p>";
       }
     ?>

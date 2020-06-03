@@ -22,13 +22,17 @@ require  'session.php';
  mysqli_select_db($conn, $dbname);
  $sql = "SELECT * FROM customer where account =  '{$_SESSION[ "username" ]}' and password =  '{$_SESSION[ "password" ]}';";
  //$sql = "SELECT * FROM customer where account = '$username' and password =  '$password';";
- if($sql){
-     echo "登入成功 Hi ";
- }
- else {
-     echo "error";
- }
  $result = mysqli_query($conn, $sql) or die('MySQL query error');
+ $row = mysqli_fetch_array($result);
+ $_SESSION["id"] = $row['id'];
+ 
+ if(isset($row['Name'])){
+    echo "登入成功 Hi ";
+    echo $row['Name']."<p>";
+    $_SESSION["Name"] = $row['Name'];
+ }else {
+    echo "error";
+ }
 
     /*mysqli_connect("localhost","hj","test1234");
     mysqli_select_db("testdb");
@@ -36,9 +40,6 @@ require  'session.php';
     $result = mysql_query("select * from users where username = '$username' and password = '$password'")//要改
     or die ("Failed to query database".mysql_error());
     $row = mysql_fetch_array($result);*/
- while($row = mysqli_fetch_array($result)){
-  echo $row['Name']."<p>";
- }
 
     /*if ($row['username'] == $username && $row['password'] == $password){
         echo "Login success!! Welcome".$row['username'];

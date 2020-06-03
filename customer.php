@@ -42,7 +42,7 @@
       $_SESSION['conn'] = $conn;
       mysqli_query($conn, "SET NAMES 'utf8'");
       mysqli_select_db($conn, $dbname);
-      echo $_SESSION[ "password" ];
+      //echo $_SESSION[ "password" ];
       $conn = $_SESSION['conn'];
       $sql = "SELECT * FROM customer where account =  '{$_SESSION[ "username" ]}' and password =  '{$_SESSION[ "password" ]}';";
       //$sql = "SELECT * FROM customer where account = '$username' and password =  '$password';";
